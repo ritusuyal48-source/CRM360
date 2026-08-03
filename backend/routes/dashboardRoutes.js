@@ -1,0 +1,19 @@
+const express = require("express");
+const router = express.Router();
+
+const protect = require("../middleware/authMiddleware");
+
+const {
+    getDashboardStats
+} = require("../controllers/dashboardController");
+
+
+// Dashboard API
+router.get(
+    "/",
+    protect,
+    getDashboardStats
+);
+
+
+module.exports = router;
